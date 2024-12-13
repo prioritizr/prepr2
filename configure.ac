@@ -191,6 +191,12 @@ else
   MPFR_LIBS="-lmpfr -lgmp -lpthread"
 fi
 
+## display compilation flags
+AC_MSG_NOTICE([GMP_CFLAGS: ${GMP_CFLAGS}])
+AC_MSG_NOTICE([GMP_LIBS: ${GMP_LIBS}])
+AC_MSG_NOTICE([MPFR_CFLAGS: ${MPFR_CFLAGS}])
+AC_MSG_NOTICE([MPFR_LIBS: ${MPFR_LIBS}])
+
 # Verify GMP settings work
 ## display message
 AC_MSG_CHECKING([if ${GMP_NAME} compiles])
@@ -277,7 +283,7 @@ rm -f mpfr_test errors.txt mpfr_test.cpp
 # Export settings
 ## store all compilations flags
 PKG_CPPFLAGS="${CPPFLAGS} ${GDAL_CPPFLAGS} ${CGAL_CPPFLAGS} ${GMP_CFLAGS} ${MPFR_CFLAGS}"
-PKG_LIBS="${LIBS} ${GDAL_LIBS} ${GMP_LIBS} ${MPFR_LIBS}"
+PKG_LIBS="${LIBS} ${GDAL_LIBS} ${GMP_LIBS} ${GDAL_DEP_LIBS} ${MPFR_LIBS}"
 
 ## print message indicating success
 AC_MSG_NOTICE([Package CPP flags: ${PKG_CPPFLAGS}])
